@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>AnyCPU</Platforms>  
+	
+  </PropertyGroup>
+  <PropertyGroup>
+		<NoWarn>$(NoWarn);AD0001;CA1062;CA5394;CA1305;CA1812</NoWarn>
+   </PropertyGroup>
+	<PropertyGroup>
+		<EnablePreviewFeatures>true</EnablePreviewFeatures>
+		<SignAssembly>False</SignAssembly>
+	</PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>preview</LangVersion>
+	<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	<WarningLevel>9999</WarningLevel>
+	<DebugType>full</DebugType>
+  </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+     <DebugType>full</DebugType>
+     <WarningLevel>9999</WarningLevel>
+     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+   </PropertyGroup>
+  <ItemGroup>
+    <None Update="CodeGeneration.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CodeGeneration.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.Math">
+      <Static>True</Static>
+    </Using>
+  </ItemGroup>
+
+</Project>

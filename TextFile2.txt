@@ -1,0 +1,6 @@
+ideas: 
+'rec' keyword
+currying
+function overloading
+custom operators
+C# Interop
